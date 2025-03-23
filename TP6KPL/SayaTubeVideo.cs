@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace TP6KPL
 
         public SayaTubeVideo(string title)
         {
+            Debug.Assert(title != null && title.Length <= 100, "Judul video tidak boleh null dan harus kurang dari 100 karakter!");
+
             Random random = new Random();
             this.id = random.Next(10000, 99999);
             this.title = title;
@@ -22,6 +25,7 @@ namespace TP6KPL
 
         public void IncreasePlayCount(int count)
         {
+            Debug.Assert(count > 0 && count <= 10000000, "Maksimal penambahan play count hanya sampai 10.000.000");
             playCount += count;
         }
 
